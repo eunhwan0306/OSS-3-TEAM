@@ -5,9 +5,14 @@
 원격 저장소에 작업 저장함에 따라 어디서든 동기화 가능
 깃 주소 공유, 다수의 개발자와 협업에 용이한 이점을 차지
 
-<h3>5-2) 계정 생성과 저장소 생성</h3> 
+<h3>5-2) 계정 생성과 저장소 생성</h3>
+①
 <img src="https://user-images.githubusercontent.com/114343532/192197446-826faad1-06fc-4e2a-a41b-c3dd0de4573d.png" width="70%" height="70%">
+②
 <img src="https://user-images.githubusercontent.com/114343532/192197456-2a74e5d4-5c82-4e11-8441-4ee6c3987004.png" width="30%" height="30%">
+③
 <img src="https://user-images.githubusercontent.com/114343532/192197459-6c431d53-e800-4556-b3bb-a746a9f48a66.png" width="70%" height="70%">
+④
 <img src="https://user-images.githubusercontent.com/114343532/192197463-06378ab9-770f-458e-83f8-291085d69254.png" width="30%" height="30%">
+⑤
 <img src="https://user-images.githubusercontent.com/114343532/192197465-8d2dd552-08c1-4d74-ac89-3dba6028309c.png" width="70%" height="70%">
