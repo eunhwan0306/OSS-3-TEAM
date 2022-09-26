@@ -95,18 +95,69 @@
  * push 명령어를 사용하기 전 미리 작업해 둔 원격 저장소와 연결된 서버 목록을 확인해 본다.
  * $git remote –v : 원격 저장소와 연결된 서버 목록을 확인하는 명령어
 <img src="https://user-images.githubusercontent.com/114343532/192238302-3e4f20f5-554a-47c5-a077-beacafbdb7ea.png" width="70%" height="70%">
- * 출력된 결과의 2번째 줄에서 ‘gitstudy05’라는 업로드가 가능한 원격 저장소가 등록된 것과 그 저장소의 별칭은 origin으로 설정된 것을 확인할 수 있다.
+ *  출력된 결과의 2번째 줄에서 ‘gitstudy05’라는 업로드가 가능한 원격 저장소가 등록된 것과 그 저장소의 별칭은 origin으로 설정된 것을 확인할 수 있다.
  
  * $git push 원격저장소별칭 브랜치이름 : 별칭 이름을 가지는 서버의 master 브랜치에 현재 브랜치를 업로드한다.
  * 브랜치(branch) : 독립적으로 어떤 작업을 진행하기 위한 개념으로 한 시점에서 개발자들이 각자 독립적인 작업 영역(저장소) 안에서 마음대로 소스 코드를 변경할 수 있다.
  * 위 명령어를 사용하여 현재 master 브랜치를 origin 서버로 전송해 본다.
 <img src="https://user-images.githubusercontent.com/114343532/192238378-d48e1ea5-b1a9-4ccf-a9f7-2d6b13a4d168.png" width="70%" height="70%">
+ 
  * 앞에서 언급한 저장소 ‘gitstudy05’의 별칭 origin을 사용하였고 이를 push 명령어를 이용하여 main 브랜치를 origin이라는 원격 저장소로 전송시켰다.
  
  * 내 깃허브 저장소 gitstudy05를 확인해 보면 서버에 새로운 main 브랜치가 생성이 되고, main 브랜치 안에 있는 소스 코드가 저장소에 그대로 업로드된 것을 볼 수 있다. gitstudy 저장소에는 앞서서 README.md 파일을 커밋했었는데 이 md 파일이 깃허브의 gitstudy05 저장소에 올라가게 된 것이다.
 <img src="https://user-images.githubusercontent.com/114343532/192238397-60136e23-5d60-4a52-add8-d9cc8db912d6.png" width="70%" height="70%">
+ 
  * 이렇게 원격 저장소에 push하면 main 저장소가 로컬 저장소의 main 브랜치와 서버의 main 브랜치 이렇게 총 2개가 생성이 된다.
 
 ## 원격 저장소의 용도
 1. 자신의 로컬 저장소를 백업하는 용도
 2. 다른 사람과 협업하는 용도
+
+## 5-5. 자동으로 내려받기
+ * 위와 반대로 원격 저장소에서 커밋된 코드를 내려받는 방법을 알아본다.
+
+## 5-5-1. clone: 복제
+ * $git clone 저장소 주소 : 기존 저장소를 이용하여 새로운 저장소를 생성하게 해준다. clone 명령어는 초기화 init 명령어 외에 원격 서버 접속에 필요한 추가 설정을 자동으로 수행한다. 서버의 연결 설정을 마친 후 서버 안에 있는 모든 커밋된 코드 이력들을 한 번에 내려받는다.
+
+**앞에서 업로드한 원격 저장소를 다른 이름의 로컬 저장소로 복제해 보자.**
+
+<img src="https://user-images.githubusercontent.com/114343532/192238420-85449a9c-84a0-4f3a-989c-088d98e9ead9.png" width="70%" height="70%">
+
+ * 아까 gitstudy05의 상위 폴더인 git으로 cd 명령어를 이용해 디렉토리를 변경한 후 git 폴더 안에 ‘gitstudy05_clone’이라는 복제할 새 폴더를 mkdir 명령어를 이용해 만들고 디렉토리를 변경한 모습이다.
+ 
+ <img src="https://user-images.githubusercontent.com/114343532/192238449-fd0190c0-f9ac-4f1b-9ded-edb12fded863.png" width="70%" height="70%">
+ 
+  * 내 원격 저장소를 gitstudy05_clone 폴더에 clone 명령어를 이용해 복제하였다.
+  
+  <img src="https://user-images.githubusercontent.com/114343532/192238465-442d0491-cd2d-4262-b3c1-7224fae8bb89.png" width="70%" height="70%">
+  
+* 위처럼 ls –all 명령어를 이용해 원격 서버가 정상석으로 복제된 것을 확인할 수 있다. 그리고 git-remote –v 명령어를 이용하면 원격 저장소 목록 또한 살펴볼 수 있다.
+
+## 5-5-2. Pull: 서버에서 내려받기
+ * pull : 복제 후 원격 저장소의 갱신된 내용을 추가로 내려받기 위해 사용할 수 있는 명령어이다. pull 명령어는 로컬 저장소보다 최신인 갱신된 원격 저장소의 커밋 정보를 현재 로컬 저장소로 내려받는다.
+ 
+  <img src="https://user-images.githubusercontent.com/114343532/192238475-09d3c710-9358-4685-a063-01e7268855a7.png" width="70%" height="70%">
+  
+   * 실습을 위해 원본 로컬 저장소인 gitstudy05로 이동한 후 ‘code server.htm’ 이라는 코드를 입력해 VSCode로 이동 후 다음과 같이 코드를 작성했다.
+   
+  <img src="https://user-images.githubusercontent.com/114343532/192238479-fbfd96b4-ae60-483b-a187-358da3fa0751.png" width="70%" height="70%">
+  
+   * 이제 add와 commit 명령어를 이용하여 위에서 작성한 sever.htm 파일을 커밋시킨다.
+   
+   <img src="https://user-images.githubusercontent.com/114343532/192238486-7a229e71-e316-4696-96cd-33c878ccdecb.png" width="70%" height="70%">
+   
+ * 이어서 push 명령어를 이용해 커밋한 내용을 원격 저장소(서버)로 업로드한다. 
+ 
+ <img src="https://user-images.githubusercontent.com/114343532/192238497-cddb7cb5-7b4a-4023-9d0e-51d38e1dbe33.png" width="70%" height="70%">
+ 
+  * 이제 복제된 저장소인 ‘gitstudy05_clone’으로 이동해 log 명령어를 이용해 커밋 로그를 확인해 보자.
+  
+ <img src="https://user-images.githubusercontent.com/114343532/192238497-cddb7cb5-7b4a-4023-9d0e-51d38e1dbe33.png" width="70%" height="70%">
+
+  * 복제된 저장소에는 아직 gitstudy05에서 처음 커밋했을 때의 커밋 하나만 있다.  이번에는 pull 명령어를 이용해 원격 저장소에서 갱신된 새 커밋 정보를 가지고 와 보겠다.
+  
+ <img src="https://user-images.githubusercontent.com/114343532/192238507-6bece26e-a5c1-4058-8d44-b71e866fa239.png" width="70%" height="70%">
+ 
+  * pull 명령엉는 원격 저장소에 갱신된 커밋을 로컬 저장소의 커밋 정보와 비교하여 갱신한다. 원격 저장소에서 복제된 저장소를 동기화한 것이다. log 명령어를 통해 확인해 보면 gitstudy05_clone 저장소에서도 2번째 커밋 이력(커밋 메시지: good day)을확인할 수 있다. 
+  
+  <img src="https://user-images.githubusercontent.com/114343532/192238515-9f0b011a-5a62-449f-812b-141c8a9b878a.png" width="70%" height="70%">
